@@ -1,0 +1,129 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "version": 0.4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        50,
+        120
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "widgets_values": [
+        "avatar.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        50,
+        360
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "widgets_values": {
+        "video": "driving.mp4",
+        "frame_load_cap": 128
+      }
+    },
+    {
+      "id": 3,
+      "type": "LivePortraitProcess",
+      "pos": [
+        450,
+        220
+      ],
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "driving_images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "widgets_values": [
+        true,
+        0.5
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        850,
+        220
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "widgets_values": [
+        "TalkingAvatar_Test",
+        30,
+        "video/h264-mp4",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ]
+  ]
+}
